@@ -28,6 +28,7 @@ public class Produto {
 	
 	public Produto() {
 	}
+
 	
 	public Produto(String nome, String descricao, BigDecimal preco, LocalDate data, Categoria categoria) {
 		this.nome = nome;
@@ -37,7 +38,7 @@ public class Produto {
 		this.categoria = categoria;
 	}
 
-	public Produto(String string, String string2, BigDecimal bigDecimal, Categoria categoria2) {
+	public Produto(String string, String string2, BigDecimal bigDecimal, Categoria c1, Categoria c2, Categoria c3) {
 	}
 
 	public Long getId() {
