@@ -8,6 +8,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -22,19 +23,21 @@ public class Produto {
 	private String descricao;
 	private BigDecimal preco;
 	private LocalDate data = LocalDate.now();
+	@ManyToOne
+	private Categoria categoria;
 	
 	public Produto() {
 	}
 	
-	public Produto(String nome, String descricao, BigDecimal preco, LocalDate data) {
+	public Produto(String nome, String descricao, BigDecimal preco, LocalDate data, Categoria categoria) {
 		this.nome = nome;
 		this.descricao = descricao;
 		this.preco = preco;
 		this.data = data;
+		this.categoria = categoria;
 	}
 
-
-	public Produto(String string, String string2, BigDecimal bigDecimal) {
+	public Produto(String string, String string2, BigDecimal bigDecimal, Categoria categoria2) {
 	}
 
 	public Long getId() {
@@ -76,4 +79,13 @@ public class Produto {
 	public void setData(LocalDate data) {
 		this.data = data;
 	}
+
+	public Categoria getCategoria() {
+		return categoria;
+	}
+
+	public void setCategoria(Categoria categoria) {
+		this.categoria = categoria;
+	}
+
 }
