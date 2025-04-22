@@ -23,6 +23,7 @@ public class Principal {
 		Lição_prática_III_e_IV();
 		
 		EntityManager em = JPAUtil.getEntityManager();
+		Pedido pedido = new Pedido();
 		PedidoDao pedidoDao = new PedidoDao(em);
 	
 		em.getTransaction().begin();
@@ -30,10 +31,14 @@ public class Principal {
 		BigDecimal total_pedidos = pedidoDao.consultarPorAgregacao();
 		System.out.println("TOTAL DE PEDIDOS: " + total_pedidos);
 		
-		em.getTransaction().commit();
-		
+				
 		List<Pedido> relatorio = pedidoDao.relatorioDeVendas();
 		relatorio.forEach(System.out::println);
+		
+		pedidoDao.consultarPorIdComCliente(1l);
+		em.close();
+		
+		System.out.println(pedido.getCliente().getNome());
 		
 	}
 
