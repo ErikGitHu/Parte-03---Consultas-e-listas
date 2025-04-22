@@ -16,4 +16,7 @@ public class ProdutoDao {
 		this.em.persist(produto);
 	}
 	
+	public Produto consultar(Long id) {
+		return em.find(Produto.class, id);
+	}
 }

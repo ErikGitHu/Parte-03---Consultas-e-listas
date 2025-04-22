@@ -7,21 +7,23 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "categorias")
-public class Categoria {
+@Table(name = "clientes")
+public class Cliente {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	private String nome;
-	private String numero;
 	
-	public Categoria() {
+	public Cliente() {
 	}
 
-	public Categoria(String nome, String numero) {
+	public Cliente(String nome) {
 		this.nome = nome;
-		this.numero = numero;
+	}
+
+	public Cliente(String string, String string2) {
+		// TODO Auto-generated constructor stub
 	}
 
 	public Long getId() {
@@ -38,14 +40,6 @@ public class Categoria {
 
 	public void setNome(String nome) {
 		this.nome = nome;
-	}
-
-	public String getNumero() {
-		return numero;
-	}
-
-	public void setNumero(String numero) {
-		this.numero = numero;
 	}
 	
 }
