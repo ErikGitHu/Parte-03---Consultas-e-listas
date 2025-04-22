@@ -41,6 +41,7 @@ public class Produto {
 	public Produto(String string, String string2, BigDecimal bigDecimal, Categoria c1, Categoria c2, Categoria c3) {
 	}
 
+
 	public Long getId() {
 		return id;
 	}

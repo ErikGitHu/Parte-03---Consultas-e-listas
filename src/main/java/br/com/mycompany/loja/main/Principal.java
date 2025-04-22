@@ -20,6 +20,24 @@ public class Principal {
 	public static void main(String[] args) {
 		Lição_prática_I_e_II();
 		
+		Lição_prática_III_e_IV();
+		
+		EntityManager em = JPAUtil.getEntityManager();
+		PedidoDao pedidoDao = new PedidoDao(em);
+	
+		em.getTransaction().begin();
+		
+		BigDecimal total_pedidos = pedidoDao.consultarPorAgregacao();
+		System.out.println("TOTAL DE PEDIDOS: " + total_pedidos);
+		
+		em.getTransaction().commit();
+		
+		List<Pedido> relatorio = pedidoDao.relatorioDeVendas();
+		relatorio.forEach(System.out::println);
+		
+	}
+
+	private static void Lição_prática_III_e_IV() {
 		EntityManager em = JPAUtil.getEntityManager();
 		CategoriaDao categoriaDao = new CategoriaDao(em);
 		ProdutoDao produtoDao = new ProdutoDao(em);
