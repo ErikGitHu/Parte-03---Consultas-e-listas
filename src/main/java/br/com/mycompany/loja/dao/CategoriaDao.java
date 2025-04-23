@@ -3,8 +3,13 @@ package br.com.mycompany.loja.dao;
 import java.util.List;
 
 import javax.persistence.EntityManager;
+import javax.persistence.criteria.CriteriaBuilder;
+import javax.persistence.criteria.CriteriaQuery;
+import javax.persistence.criteria.Predicate;
+import javax.persistence.criteria.Root;
 
 import br.com.mycompany.loja.modelo.Categoria;
+import br.com.mycompany.loja.modelo.Produto;
 
 public class CategoriaDao {
 	private EntityManager em;
@@ -35,4 +40,5 @@ public class CategoriaDao {
 		return em.createQuery(jpql, Categoria.class)
 				.getResultList();
 	}
+
 }

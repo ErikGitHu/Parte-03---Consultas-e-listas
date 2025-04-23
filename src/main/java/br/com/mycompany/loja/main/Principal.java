@@ -22,6 +22,15 @@ public class Principal {
 		
 		Lição_prática_III_e_IV();
 		
+		Lição_prática_V_e_VI();
+		
+		EntityManager em = JPAUtil.getEntityManager();
+		ProdutoDao produtoDao = new ProdutoDao(em);
+		produtoDao.consultarPorParametros("Computador", null, null, null);
+		
+	}
+
+	private static void Lição_prática_V_e_VI() {
 		EntityManager em = JPAUtil.getEntityManager();
 		Pedido pedido = new Pedido();
 		PedidoDao pedidoDao = new PedidoDao(em);
@@ -39,7 +48,6 @@ public class Principal {
 		em.close();
 		
 		System.out.println(pedido.getCliente().getNome());
-		
 	}
 
 	private static void Lição_prática_III_e_IV() {
