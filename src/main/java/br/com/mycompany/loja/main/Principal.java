@@ -10,6 +10,7 @@ import br.com.mycompany.loja.dao.ClienteDao;
 import br.com.mycompany.loja.dao.PedidoDao;
 import br.com.mycompany.loja.dao.ProdutoDao;
 import br.com.mycompany.loja.modelo.Categoria;
+import br.com.mycompany.loja.modelo.CategoriaId;
 import br.com.mycompany.loja.modelo.Cliente;
 import br.com.mycompany.loja.modelo.ItemPedido;
 import br.com.mycompany.loja.modelo.Pedido;
@@ -28,7 +29,7 @@ public class Principal {
 		ProdutoDao produtoDao = new ProdutoDao(em);
 		produtoDao.consultarPorParametros("Computador", null, null, null);
 		
-	}
+	} 
 
 	private static void Lição_prática_V_e_VI() {
 		EntityManager em = JPAUtil.getEntityManager();
@@ -63,7 +64,7 @@ public class Principal {
 		System.out.println(p.getNome());
 		
 		List<Categoria> categoria = categoriaDao.consultarLista();
-		categoria.forEach(c -> System.out.println(c.getNumero()));
+		categoria.forEach(c -> System.out.println(c));
 		
 		em.getTransaction().begin();
 		
@@ -91,13 +92,11 @@ public class Principal {
 		
 		em.getTransaction().begin();
 		
-		em.persist(c1);
-		c1.setNome("Tamano");/*Em vista de um erro por negligência no código fonte, é necessário atualizar o sistema*/
+		em.persist(new CategoriaId("Tamano", "9"));
 		em.flush();
 		em.clear();
 		
-		c1 = em.merge(c1);
-		c1.setNome("Tamanho");
+		em.merge(new CategoriaId("Tamanho", "10"));
 		em.flush();
 		
 		em.remove(c1);

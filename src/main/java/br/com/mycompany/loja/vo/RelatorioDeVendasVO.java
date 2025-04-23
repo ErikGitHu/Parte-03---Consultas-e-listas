@@ -6,7 +6,7 @@ public class RelatorioDeVendasVO {
 	
 	private Long id;
 	private String nomeDoProduto;
-	private String quantidadeDeVendas;
+	private Long quantidadeDeVendas;
 	private LocalDate dataUltimaVenda = LocalDate.now();
 	
 	@Override
@@ -15,7 +15,7 @@ public class RelatorioDeVendasVO {
 				+ quantidadeDeVendas + ", dataUltimaVenda=" + dataUltimaVenda + "]";
 	}
 
-	public RelatorioDeVendasVO(String nomeDoProduto, String quantidadeDeVendas, LocalDate dataUltimaVenda) {
+	public RelatorioDeVendasVO(String nomeDoProduto, Long quantidadeDeVendas, LocalDate dataUltimaVenda) {
 		this.nomeDoProduto = nomeDoProduto;
 		this.quantidadeDeVendas = quantidadeDeVendas;
 		this.dataUltimaVenda = dataUltimaVenda;
@@ -29,7 +29,7 @@ public class RelatorioDeVendasVO {
 		return nomeDoProduto;
 	}
 
-	public String getQuantidadeDeVendas() {
+	public Long getQuantidadeDeVendas() {
 		return quantidadeDeVendas;
 	}
 
