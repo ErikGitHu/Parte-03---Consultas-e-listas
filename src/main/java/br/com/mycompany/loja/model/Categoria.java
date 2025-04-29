@@ -1,6 +1,5 @@
-package br.com.mycompany.loja.modelo;
+package br.com.mycompany.loja.model;
 
-import javax.persistence.Embedded;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -8,24 +7,19 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "clientes")
-public class Cliente {
+@Table(name = "categorias")
+public class Categoria {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
-	@Embedded
-	private DadosPessoais dados_pessoais;
+	private String nome;
 	
-	public Cliente() {
+	public Categoria() {
 	}
 
-	public Cliente(String nome, String cpf) {
-		this.dados_pessoais = new DadosPessoais(nome, cpf);
-	}
-	
-	public String getNome() {
-		return this.dados_pessoais.getNome();
+	public Categoria(String nome) {
+		this.nome = nome;
 	}
 
 	public Long getId() {
@@ -34,5 +28,13 @@ public class Cliente {
 
 	public void setId(Long id) {
 		this.id = id;
+	}
+
+	public String getNome() {
+		return nome;
+	}
+
+	public void setNome(String nome) {
+		this.nome = nome;
 	}
 }

@@ -1,50 +1,42 @@
-package br.com.mycompany.loja.modelo;
+package br.com.mycompany.loja.model;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
 
-import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.Inheritance;
-import javax.persistence.InheritanceType;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
-
 @Entity
 @Table(name = "produtos")
-@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
 public class Produto {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	private String nome;
-	@Column(name = "descriçao")
-	private String descricao;
-	private BigDecimal preco;
+	private String descriçao;
+	private BigDecimal preço;
 	private LocalDate data = LocalDate.now();
-	@ManyToOne(fetch = FetchType.LAZY)
+	@ManyToOne
 	private Categoria categoria;
 	
 	public Produto() {
 	}
 
-	
-	public Produto(String nome, String descricao, BigDecimal preco, LocalDate data, Categoria categoria) {
+	public Produto(String nome, String descriçao, BigDecimal preço, LocalDate data, Categoria categoria) {
 		this.nome = nome;
-		this.descricao = descricao;
-		this.preco = preco;
+		this.descriçao = descriçao;
+		this.preço = preço;
 		this.data = data;
 		this.categoria = categoria;
 	}
 
-	public Produto(String string, String string2, BigDecimal bigDecimal, Categoria c1, Categoria c2, Categoria c3) {
+	public Produto(String string, String string2, BigDecimal bigDecimal, Categoria categoria) {
+		// TODO Auto-generated constructor stub
 	}
-
 
 	public Long getId() {
 		return id;
@@ -62,20 +54,20 @@ public class Produto {
 		this.nome = nome;
 	}
 
-	public String getDescricao() {
-		return descricao;
+	public String getDescriçao() {
+		return descriçao;
 	}
 
-	public void setDescricao(String descricao) {
-		this.descricao = descricao;
+	public void setDescriçao(String descriçao) {
+		this.descriçao = descriçao;
 	}
 
-	public BigDecimal getPreco() {
-		return preco;
+	public BigDecimal getPreço() {
+		return preço;
 	}
 
-	public void setPreco(BigDecimal preco) {
-		this.preco = preco;
+	public void setPreço(BigDecimal preço) {
+		this.preço = preço;
 	}
 
 	public LocalDate getData() {
@@ -93,5 +85,4 @@ public class Produto {
 	public void setCategoria(Categoria categoria) {
 		this.categoria = categoria;
 	}
-
 }
